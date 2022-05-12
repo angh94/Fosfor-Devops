@@ -1,0 +1,30 @@
+
+Create users in jenkins 
+
+
+1) Manage jenkins -> manage users -> created two users (developer1 and tester1)
+
+2) Go to plugins and install role-based authorization strategy plugin 
+
+3) restart your jenkins
+
+4) manage jenkins -> configure global security -> under authorization select -> role based stategy
+
+5) when you try to login into jenkins frm any of the account you will not be able to login because of the missing parameters
+
+6) now again login as admin
+
+7) Manage jenkins -> Manage and assign roles -> manage roles -> add a role 
+e.g developerrole -> (overall read and give compete  job access)
+testerrole -> (overall read and give only read access of job)
+
+Save
+
+8) Click on assign roles and put developer1 and assign developerrole and create tester1 and assign testerole
+
+9) now logout from jenkins and login as a developer and you will see some point missing ...as you cannot manage jenkins that permission is not given
+
+10) logout and login and tester1 and check if you can create a job (you will not be able to create because you have just read access only)
+
+
+Assignment : Create a user which just have an access to manage jenkins but no access to the jobs !! 
