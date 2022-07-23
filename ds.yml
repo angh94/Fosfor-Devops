@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: prometheus-daemonset
+spec:
+  selector:
+    matchLabels:
+      tier: monitoring
+      name: prometheus-exporter
+  template:
+    metadata:
+      labels:
+        tier: monitoring
+        name: prometheus-exporter
+    spec:
+      containers:
+      - name: prometheusprom
+        image: prom/node-exporter
+      - name: mongoc
+        image: mongo
+      - name: cron
+        image: denisjd/kubernetes-cronhpa-controller
+        ports:
+        - containerPort: 80
